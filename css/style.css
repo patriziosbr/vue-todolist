@@ -2,6 +2,15 @@ ul {
     list-style: none;
  
 }
-li {
- 
+
+li i {
+    vertical-align: middle;
+    line-height: 45px;
+    cursor: pointer;
+}
+li p {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    text-transform: capitalize;
 }

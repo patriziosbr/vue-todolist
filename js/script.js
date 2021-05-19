@@ -3,6 +3,8 @@
 // - "completed", un booleano settato inizialmente a false.
 // Stampare in pagina un item per ogni elemento della to-do list.
 // Ogni item ha una "x" associata: cliccando su di essa, l'item viene rimosso dalla lista.
+
+
 // Predisporre un input per aggiungere un nuovo item alla lista: digitando il tasto invio oppure cliccando su un pulsante, il testo digitato viene aggiunto alla lista (all'interno di un nuovo oggetto con proprietà "completed" settata a false).
 // BONUS:
 // Al click sull'intero elemento della lista, si modifica il valore della proprietà completed da false a true, e viceversa in caso di successivi click (toggle).
@@ -30,10 +32,19 @@ var app = new Vue(
           text: "pesce",
           completed: false
          }
-       ]
+       ],
+       newItem: ""
      },
     methods: {
-        
+      removeItem : function() {
+        this.toDoList.splice(this.toDo, 1)
+      },
+      addItem : function() {
+        if(this.newItem.length > 0) {
+          this.toDoList.push({text: this.newItem, completed: false})
+        }
+        this.newItem = ""
+      }
     }
 
 } 

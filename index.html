@@ -14,13 +14,18 @@
 </head>
 <body>
     <div id="root">
-
-        <ul>
+        
+        <div>
+            <input v-model="newItem" type="text" placeholder="add an item">
+            <button @click="addItem">Add</button>
+        </div>
+        <ul v-if="toDoList.length > 0">
             <li v-for="toDo in toDoList">
-                <i class="fas fa-times"></i>    
+                <i @click="removeItem" class="fas fa-times"></i>    
                 <p>{{toDo.text}}</p>
             </li>
         </ul>
+        <h2 v-else="toDoList">lista vuota</h2>
         
 
 
