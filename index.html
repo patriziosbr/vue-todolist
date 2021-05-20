@@ -15,20 +15,17 @@
 <body>
     <div id="root">
         
-        <div>
-            <input v-model="newItem" type="text" placeholder="add an item">
-            <button @click="addItem">Add</button>
+        <div class="addArea">
+            <input v-model="newItem" @keyup.enter="addItem" type="text" placeholder="add an item">
+            <button @click="addItem" >Add</button>
         </div>
         <ul v-if="toDoList.length > 0">
-            <li v-for="toDo in toDoList">
-                <i @click="removeItem" class="fas fa-times"></i>    
-                <p>{{toDo.text}}</p>
+            <li v-for="(toDo, index) in toDoList">
+                <i @click="removeItem(index)" class="fas fa-times"></i>    
+                <p @click="modifyKey(toDo, index)" :class="{ done : toDo.completed }">{{toDo.text}}</p>
             </li>
         </ul>
-        <h2 v-else="toDoList">lista vuota</h2>
-        
-
-
+        <h2 v-else>lista vuota</h2>
     </div>
     <!-- my script -->
     <script src="./js/script.js"></script>
